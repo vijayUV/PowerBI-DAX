@@ -1,0 +1,14 @@
+//Open Tasks vs Total tasks
+No.of Tasks = CONCATENATE( 
+                            CALCULATE(
+                                      COUNT(
+                                            TaskManagement[Id]
+                                            ),FILTER(
+                                                     TaskManagement,TaskManagement[Status] <>"Completed"
+                                                     )
+                                      ),CONCATENATE(
+                                                    "/",COUNT(
+                                                               Management[Id]
+                                                               )
+                                                     )
+                          )
